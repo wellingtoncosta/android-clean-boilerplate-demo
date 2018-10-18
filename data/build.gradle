@@ -1,0 +1,28 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion versions.sdk.compile
+
+    defaultConfig {
+        minSdkVersion versions.sdk.min
+        targetSdkVersion versions.sdk.target
+    }
+
+    compileOptions {
+        sourceCompatibility = versions.java
+        targetCompatibility = versions.java
+    }
+}
+
+dependencies {
+    // AndroidX
+    implementation deps.androidx.core
+
+    // Kotlin
+    implementation deps.kotlin.stdlib
+
+    // Tests
+    androidTestImplementation deps.tests.android.espresso
+    androidTestImplementation deps.tests.android.runner
+    testImplementation deps.tests.junit
+}

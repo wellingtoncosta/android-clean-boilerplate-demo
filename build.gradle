@@ -1,0 +1,69 @@
+buildscript {
+    ext.versions = [
+            androidx: [
+                    core: '1.0.0',
+                    test: [
+                            espresso: '3.1.0-beta02',
+                            runner: '1.1.0-beta02'
+                    ]
+            ],
+            google: [
+                    material: '1.0.0'
+            ],
+            gradlePlugin: '3.2.1',
+            java: 1.7,
+            kotlin: [
+                    coroutines: '0.30.2',
+                    stdlib: '1.2.71'
+            ],
+            sdk: [
+                    compile: 28,
+                    min: 16,
+                    target: 28
+            ],
+            test: [
+                    junit: '4.12'
+            ]
+    ]
+
+    ext.deps = [
+            androidx: [
+                    core: "androidx.core:core-ktx:$versions.androidx.core"
+            ],
+            google: [
+                    material: "com.google.android.material:material:$versions.google.material"
+            ],
+            kotlin: [
+                    coroutines: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlin.coroutines",
+                    stdlib: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin.stdlib"
+            ],
+            tests: [
+                    android: [
+                            espresso: "androidx.test.espresso:espresso-core:$versions.androidx.test.espresso",
+                            runner: "androidx.test:runner:$versions.androidx.test.runner"
+                    ],
+                    junit: "junit:junit:$versions.test.junit"
+            ]
+    ]
+
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$versions.gradlePlugin"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin.stdlib"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion versions.sdk.compile
+
+    defaultConfig {
+        applicationId "br.com.wellingtoncosta.androidcleanpoc"
+        minSdkVersion versions.sdk.min
+        targetSdkVersion versions.sdk.target
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility = versions.java
+        targetCompatibility = versions.java
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    // AndroidX
+    implementation deps.androidx.core
+
+    // Kotlin
+    implementation deps.kotlin.stdlib
+
+    // Google Material
+    implementation deps.google.material
+
+    // Tests
+    androidTestImplementation deps.tests.android.espresso
+    androidTestImplementation deps.tests.android.runner
+    testImplementation deps.tests.junit
+}
