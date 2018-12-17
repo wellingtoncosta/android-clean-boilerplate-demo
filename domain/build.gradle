@@ -3,6 +3,11 @@ apply plugin: 'kotlin'
 sourceCompatibility = versions.java
 targetCompatibility = versions.java
 
+sourceSets {
+    main.java.srcDirs += "src/main/kotlin"
+    test.java.srcDirs += "src/test/kotlin"
+}
+
 dependencies {
     // Kotlin
     implementation deps.kotlin.stdlib

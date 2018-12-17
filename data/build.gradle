@@ -3,14 +3,19 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion versions.sdk.compile
 
+    compileOptions {
+        sourceCompatibility = versions.java
+        targetCompatibility = versions.java
+    }
+
     defaultConfig {
         minSdkVersion versions.sdk.min
         targetSdkVersion versions.sdk.target
     }
 
-    compileOptions {
-        sourceCompatibility = versions.java
-        targetCompatibility = versions.java
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
+        test.java.srcDirs += "src/test/kotlin"
     }
 }
 
@@ -18,11 +23,22 @@ dependencies {
     // AndroidX
     implementation deps.androidx.core
 
+    // Domain module
+    api project(':domain')
+
     // Kotlin
     implementation deps.kotlin.stdlib
 
+    // Moshi
+    implementation deps.moshi.kotlin
+
+    // Retrofit
+    implementation deps.retrofit.runtime
+
+    // Room
+    implementation deps.androidx.room.runtime
+
     // Tests
-    androidTestImplementation deps.tests.android.espresso
-    androidTestImplementation deps.tests.android.runner
     testImplementation deps.tests.junit
+    testImplementation deps.tests.mockito.kotlin
 }
