@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- app default colors -->
+    <color name="appMainColor">@color/greenA400</color>
+
+    <!-- colors -->
+    <color name="white">#fff</color>
+
+    <color name="grey200">#eee</color>
+    <color name="grey500">#9e9e9e</color>
+
+    <color name="greenA400">#69F0AE</color>
+</resources>
