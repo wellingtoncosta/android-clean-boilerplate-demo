@@ -7,4 +7,5 @@
         <item name="android:windowBackground">@color/white</item>
     </style>
 
+    <style name="AppTheme.Main" parent="AppTheme"/>
 </resources>

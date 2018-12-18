@@ -1,11 +1,7 @@
 <resources>
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppTheme.Main" parent="AppTheme">
         <item name="android:windowLightStatusBar">true</item>
-        <item name="android:windowBackground">@color/white</item>
     </style>
 
 </resources>
