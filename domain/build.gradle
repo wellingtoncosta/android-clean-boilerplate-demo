@@ -1,4 +1,5 @@
 apply plugin: 'kotlin'
+apply plugin: 'kotlinx-serialization'
 
 sourceCompatibility = versions.java
 targetCompatibility = versions.java
@@ -11,4 +12,5 @@ sourceSets {
 dependencies {
     // Kotlin
     implementation deps.kotlin.stdlib
+    implementation deps.kotlinx.serialization
 }

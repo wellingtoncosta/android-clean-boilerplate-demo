@@ -1,11 +1,12 @@
 package br.com.wellingtoncosta.androidcleanboilerplate.domain.model
 
+import kotlinx.serialization.Serializable
 import java.util.*
 
 /**
  * @author Wellington Costa on 17/12/2018.
  **/
-data class Movie(
+@Serializable data class Movie(
         val id: Long?,
         val name: String,
         val description: String = "",

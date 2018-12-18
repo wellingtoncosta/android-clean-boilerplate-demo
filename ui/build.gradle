@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlinx-serialization'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: "androidx.navigation.safeargs"
+apply plugin: 'androidx.navigation.safeargs'
 
 android {
     buildTypes {
@@ -60,8 +61,6 @@ dependencies {
 
     // Fuel
     implementation deps.fuel.core
-    implementation deps.fuel.coroutines
-    implementation deps.fuel.moshi
 
     // Google Material Design
     implementation deps.google.material
@@ -72,6 +71,8 @@ dependencies {
 
     // Kotlin
     implementation deps.kotlin.stdlib
+    implementation deps.kotlinx.coroutines.android
+    implementation deps.kotlinx.serialization
 
     // Room
     kapt deps.androidx.room.compiler
