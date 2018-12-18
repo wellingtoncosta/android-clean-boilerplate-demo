@@ -26,14 +26,13 @@ dependencies {
     // Domain module
     api project(':domain')
 
+    // Fuel
+    implementation deps.fuel.core
+    implementation deps.fuel.coroutines
+    implementation deps.fuel.moshi
+
     // Kotlin
     implementation deps.kotlin.stdlib
-
-    // Moshi
-    implementation deps.moshi.kotlin
-
-    // Retrofit
-    implementation deps.retrofit.runtime
 
     // Room
     implementation deps.androidx.room.runtime

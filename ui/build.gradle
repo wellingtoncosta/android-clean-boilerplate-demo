@@ -58,6 +58,11 @@ dependencies {
     // Domain module
     api project(':domain')
 
+    // Fuel
+    implementation deps.fuel.core
+    implementation deps.fuel.coroutines
+    implementation deps.fuel.moshi
+
     // Google Material Design
     implementation deps.google.material
 
@@ -67,17 +72,6 @@ dependencies {
 
     // Kotlin
     implementation deps.kotlin.stdlib
-
-    // Moshi
-    implementation deps.moshi.kotlin
-
-    // OkHttp
-    implementation deps.okhttp.logginginterceptor
-
-    // Retrofit
-    implementation deps.retrofit.adapter.coroutines
-    implementation deps.retrofit.adapter.moshi
-    implementation deps.retrofit.runtime
 
     // Room
     kapt deps.androidx.room.compiler
