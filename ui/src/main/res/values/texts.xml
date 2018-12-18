@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App Text Style -->
+    <style name="AppTheme.Text.Large" parent="TextAppearance.MaterialComponents.Headline6"/>
+    <style name="AppTheme.Text.Medium" parent="TextAppearance.MaterialComponents.Subtitle1"/>
+    <style name="AppTheme.Text.Small" parent="TextAppearance.MaterialComponents.Subtitle2"/>
+</resources>
