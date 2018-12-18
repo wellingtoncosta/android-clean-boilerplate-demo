@@ -9,5 +9,6 @@ data class Book(
         val id: Long?,
         val title: String,
         val author: String,
-        val releaseDate: Date
+        val releaseDate: Date,
+        val favorite: Boolean
 )
