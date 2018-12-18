@@ -8,15 +8,18 @@ buildscript {
                     legacysupport: '1.0.0',
                     lifecycle: '2.0.0',
                     room: '2.0.0',
+                    navigation: '1.0.0-alpha08',
                     test: [
                             espresso: '3.1.1',
-                            runner: '1.1.1'
+                            runner: '1.1.1',
+                            navigation: '1.0.0-alpha08'
                     ]
             ],
             google: [
                     material: '1.0.0'
             ],
             gradleplugin: '3.2.1',
+            safeArgsPlugin: "1.0.0-alpha08",
             java: 1.7,
             koin: '1.0.2',
             kotlin: [
@@ -64,9 +67,14 @@ buildscript {
                             compiler: "androidx.room:room-compiler:${versions.androidx.room}",
                             runtime: "androidx.room:room-runtime:${versions.androidx.room}"
                     ],
+                    navigation: [
+                            fragment: "android.arch.navigation:navigation-fragment-ktx:${versions.androidx.navigation}",
+                            ui: "android.arch.navigation:navigation-ui-ktx:${versions.androidx.navigation}"
+                    ],
                     tests: [
                             espresso: "androidx.test.espresso:espresso-core:$versions.androidx.test.espresso",
-                            runner: "androidx.test:runner:$versions.androidx.test.runner"
+                            runner: "androidx.test:runner:$versions.androidx.test.runner",
+                            navigation: "android.arch.navigation:navigation-testing:$versions.androidx.test.navigation"
                     ]
             ],
             google: [
@@ -112,6 +120,7 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:$versions.gradleplugin"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin.stdlib"
+        classpath "android.arch.navigation:navigation-safe-args-gradle-plugin:$versions.safeArgsPlugin"
     }
 }
 
