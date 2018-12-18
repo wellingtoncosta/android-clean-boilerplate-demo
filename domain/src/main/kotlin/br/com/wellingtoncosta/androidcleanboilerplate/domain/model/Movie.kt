@@ -10,5 +10,6 @@ data class Movie(
         val name: String,
         val description: String = "",
         val director: String,
-        val releaseDate: Date
+        val releaseDate: Date,
+        val favorite: Boolean
 )
