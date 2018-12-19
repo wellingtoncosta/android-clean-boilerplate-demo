@@ -15,4 +15,9 @@ interface AuthenticationCache {
 
     suspend fun clear()
 
+    companion object {
+        const val TOKEN_KEY = "TOKEN_KEY"
+        const val USER_EMAIL_KEY = "USER_EMAIL_KEY"
+    }
+
 }
