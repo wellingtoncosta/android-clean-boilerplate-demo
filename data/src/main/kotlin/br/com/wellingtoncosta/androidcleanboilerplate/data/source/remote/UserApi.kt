@@ -1,6 +1,5 @@
 package br.com.wellingtoncosta.androidcleanboilerplate.data.source.remote
 
-import br.com.wellingtoncosta.androidcleanboilerplate.domain.model.Credentials
 import br.com.wellingtoncosta.androidcleanboilerplate.domain.model.User
 import com.github.kittinunf.result.Result
 
@@ -10,7 +9,5 @@ import com.github.kittinunf.result.Result
 interface UserApi {
 
     suspend fun save(user: User): Result<User, Exception>
-
-    suspend fun authenticate(credentials: Credentials): Result<User, Exception>
 
 }

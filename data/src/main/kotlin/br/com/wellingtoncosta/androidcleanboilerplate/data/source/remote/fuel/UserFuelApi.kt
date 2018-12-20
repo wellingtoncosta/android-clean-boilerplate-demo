@@ -3,7 +3,6 @@ package br.com.wellingtoncosta.androidcleanboilerplate.data.source.remote.fuel
 import awaitStringResult
 import br.com.wellingtoncosta.androidcleanboilerplate.data.extension.runAsyncOnIo
 import br.com.wellingtoncosta.androidcleanboilerplate.data.source.remote.UserApi
-import br.com.wellingtoncosta.androidcleanboilerplate.domain.model.Credentials
 import br.com.wellingtoncosta.androidcleanboilerplate.domain.model.User
 import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.result.map
@@ -18,14 +17,6 @@ class UserFuelApi : UserApi {
     override suspend fun save(user: User) = runAsyncOnIo {
         Fuel.post("/api/movies")
             .jsonBody(JSON.stringify(User.serializer(), user))
-            .awaitStringResult()
-            .map { data -> JSON.parse(User.serializer(), data) }
-            .mapError { error -> error.exception }
-    }
-
-    override suspend fun authenticate(credentials: Credentials) = runAsyncOnIo {
-        Fuel.post("/api/movies")
-            .jsonBody(JSON.stringify(Credentials.serializer(), credentials))
             .awaitStringResult()
             .map { data -> JSON.parse(User.serializer(), data) }
             .mapError { error -> error.exception }

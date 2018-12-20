@@ -93,8 +93,7 @@ buildscript {
                     serialization: "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$versions.kotlinx.serialization"
             ],
             result: [
-                    core: "com.github.kittinunf.result:result:$versions.result",
-                    coroutines: "com.github.kittinunf.result:result-coroutines:$versions.result"
+                    core: "com.github.kittinunf.result:result:$versions.result"
             ],
             tests: [
                     junit: "junit:junit:$versions.test.junit",
