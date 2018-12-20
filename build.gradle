@@ -29,6 +29,7 @@ buildscript {
                     coroutines: '1.0.1',
                     serialization: '0.9.1'
             ],
+            result: '1.6.0',
             sdk: [
                     compile: 28,
                     min: 16,
@@ -91,11 +92,15 @@ buildscript {
                     ],
                     serialization: "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$versions.kotlinx.serialization"
             ],
+            result: [
+                    core: "com.github.kittinunf.result:result:$versions.result",
+                    coroutines: "com.github.kittinunf.result:result-coroutines:$versions.result"
+            ],
             tests: [
                     junit: "junit:junit:$versions.test.junit",
                     mockito: [
-                            android: "org.mockito:mockito-android:${versions.test.mockito.android}",
-                            kotlin: "com.nhaarman:mockito-kotlin:${versions.test.mockito.kotlin}"
+                            android: "org.mockito:mockito-android:$versions.test.mockito.android",
+                            kotlin: "com.nhaarman:mockito-kotlin:$versions.test.mockito.kotlin"
                     ]
             ]
     ]

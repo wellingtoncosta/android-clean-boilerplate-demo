@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply plugin: 'kotlinx-serialization'
 
 android {
@@ -25,7 +26,7 @@ dependencies {
     implementation deps.androidx.core
 
     // Domain module
-    api project(':domain')
+    implementation project(':domain')
 
     // Fuel
     implementation deps.fuel.core

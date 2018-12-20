@@ -54,10 +54,10 @@ dependencies {
     implementation deps.androidx.lifecycle
 
     // Data module
-    api project(':data')
+    implementation project(':data')
 
     // Domain module
-    api project(':domain')
+    implementation project(':domain')
 
     // Fuel
     implementation deps.fuel.core
