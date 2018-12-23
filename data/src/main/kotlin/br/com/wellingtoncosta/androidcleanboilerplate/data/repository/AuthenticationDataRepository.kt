@@ -1,12 +1,14 @@
 package br.com.wellingtoncosta.androidcleanboilerplate.data.repository
 
+import br.com.wellingtoncosta.androidcleanboilerplate.data.extension.runAsyncOnIo
+import br.com.wellingtoncosta.androidcleanboilerplate.data.extension.runJobOnIo
+import br.com.wellingtoncosta.androidcleanboilerplate.data.mapper.toDomain
+import br.com.wellingtoncosta.androidcleanboilerplate.data.mapper.toEntity
 import br.com.wellingtoncosta.androidcleanboilerplate.data.source.local.cache.AuthenticationCache
 import br.com.wellingtoncosta.androidcleanboilerplate.data.source.local.db.dao.UserDao
 import br.com.wellingtoncosta.androidcleanboilerplate.data.source.remote.AuthenticationApi
 import br.com.wellingtoncosta.androidcleanboilerplate.domain.model.Credentials
-import br.com.wellingtoncosta.androidcleanboilerplate.domain.model.User
 import br.com.wellingtoncosta.androidcleanboilerplate.domain.repository.AuthenticationRepository
-import com.github.kittinunf.result.Result
 
 /**
  * @author Wellington Costa on 20/12/2018.
@@ -17,16 +19,17 @@ class AuthenticationDataRepository(
     private val cache: AuthenticationCache
 ) : AuthenticationRepository {
 
-    override suspend fun login(credentials: Credentials): Result<User, Exception> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override suspend fun login(credentials: Credentials) = runAsyncOnIo {
+        val response = api.authenticate(credentials)
+        db.insert(response.user.toEntity())
+        cache.saveToken(response.token)
+        response.user
     }
 
-    override suspend fun logout(): Result<Unit, Exception> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override suspend fun logout() = runJobOnIo { cache.clear() }
 
-    override suspend fun getLoggedUser(): Result<User, Exception> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override suspend fun getLoggedUser() = runAsyncOnIo {
+        cache.getEmailOfLoggedUser()?.let { db.findByEmail(it)?.toDomain() }
     }
 
 }

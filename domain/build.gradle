@@ -13,7 +13,4 @@ dependencies {
     // Kotlin
     implementation deps.kotlin.stdlib
     implementation deps.kotlinx.serialization
-
-    // Result
-    implementation deps.result.core
 }

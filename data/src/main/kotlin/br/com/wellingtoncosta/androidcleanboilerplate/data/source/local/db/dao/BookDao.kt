@@ -8,7 +8,7 @@ import br.com.wellingtoncosta.androidcleanboilerplate.data.source.local.db.entit
  **/
 @Dao interface BookDao {
 
-    @Insert fun insert(entity: BookEntity)
+    @Insert fun insert(entity: BookEntity): Long
 
     @Update fun update(entity: BookEntity)
 
@@ -16,5 +16,11 @@ import br.com.wellingtoncosta.androidcleanboilerplate.data.source.local.db.entit
 
     @Query("select * from tb_book")
     fun findAll(): List<BookEntity>
+
+    @Query("select * from tb_book where id = :id")
+    fun findById(id: Long): BookEntity?
+
+    @Query("select * from tb_book where title like :title collate nocase")
+    fun findByTitle(title: String): List<BookEntity>
 
 }

@@ -8,6 +8,6 @@ import com.github.kittinunf.result.Result
  **/
 interface UserApi {
 
-    suspend fun save(user: User): Result<User, Exception>
+    suspend fun save(user: User): User
 
 }

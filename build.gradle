@@ -29,7 +29,7 @@ buildscript {
                     coroutines: '1.0.1',
                     serialization: '0.9.1'
             ],
-            result: '1.6.0',
+            result: '2.0.0',
             sdk: [
                     compile: 28,
                     min: 16,
@@ -69,9 +69,9 @@ buildscript {
                     ]
             ],
             fuel: [
-                    core: "com.github.kittinunf.fuel:fuel:${versions.fuel}",
-                    coroutines: "com.github.kittinunf.fuel:fuel-coroutines:${versions.fuel}",
-                    serialization: "com.github.kittinunf.fuel:fuel-kotlinx-serialization:${versions.fuel}"
+                    core: "com.github.kittinunf.fuel:fuel:$versions.fuel",
+                    coroutines: "com.github.kittinunf.fuel:fuel-coroutines:$versions.fuel",
+                    serialization: "com.github.kittinunf.fuel:fuel-kotlinx-serialization:$versions.fuel"
             ],
             google: [
                     material: "com.google.android.material:material:$versions.google.material"
@@ -91,9 +91,6 @@ buildscript {
                             core: "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlinx.coroutines"
                     ],
                     serialization: "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$versions.kotlinx.serialization"
-            ],
-            result: [
-                    core: "com.github.kittinunf.result:result:$versions.result"
             ],
             tests: [
                     junit: "junit:junit:$versions.test.junit",

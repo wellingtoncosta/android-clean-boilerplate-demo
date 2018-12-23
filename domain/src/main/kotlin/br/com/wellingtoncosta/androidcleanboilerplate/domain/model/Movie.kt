@@ -12,5 +12,6 @@ import java.util.*
         val description: String = "",
         val director: String,
         val releaseDate: Date,
-        val favorite: Boolean
+        val favorite: Boolean,
+        val ownerId: Long
 )

@@ -8,3 +8,5 @@ import br.com.wellingtoncosta.androidcleanboilerplate.domain.model.User
  **/
 
 fun User.toEntity() = UserEntity(this.id, this.name, this.email)
+
+fun UserEntity.toDomain() = User(this.id, this.name, this.email)

@@ -11,5 +11,6 @@ import java.util.*
         val title: String,
         val author: String,
         val releaseDate: Date,
-        val favorite: Boolean
+        val favorite: Boolean,
+        val ownerId: Long
 )

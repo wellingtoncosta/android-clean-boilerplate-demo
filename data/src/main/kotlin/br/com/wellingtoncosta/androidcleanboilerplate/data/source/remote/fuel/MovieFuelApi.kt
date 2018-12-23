@@ -18,31 +18,27 @@ class MovieFuelApi : MovieApi {
     override suspend fun save(movie: Movie) = runAsyncOnIo {
         Fuel.post("/api/movies")
             .jsonBody(JSON.stringify(Movie.serializer(), movie))
-            .awaitStringResult()
-            .map { data -> JSON.parse(Movie.serializer(), data) }
-            .mapError { error -> error.exception }
+            .awaitStringResult().get()
+            .let { JSON.parse(Movie.serializer(), it) }
     }
 
     override suspend fun update(id: Long, movie: Movie) = runAsyncOnIo {
         Fuel.put("/api/movies/$id")
             .jsonBody(JSON.stringify(Movie.serializer(), movie))
-            .awaitStringResult()
-            .map { data -> JSON.parse(Movie.serializer(), data) }
-            .mapError { error -> error.exception }
+            .awaitStringResult().get()
+            .let { JSON.parse(Movie.serializer(), it) }
     }
 
     override suspend fun delete(id: Long) = runAsyncOnIo {
         Fuel.delete("/api/movies/$id")
-            .awaitStringResult()
-            .map { Unit }
-            .mapError { error -> error.exception }
+            .awaitStringResult().get()
+            .let { Unit }
     }
 
     override suspend fun listAllByUser(userId: Long) = runAsyncOnIo {
         Fuel.get("/api/books/user/$userId")
-            .awaitStringResult()
-            .map { data -> JSON.parse(Movie.serializer().list, data) }
-            .mapError { error -> error.exception }
+            .awaitStringResult().get()
+            .let { JSON.parse(Movie.serializer().list, it) }
     }
 
 }
