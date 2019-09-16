@@ -1,17 +1,16 @@
-# android-clean-poc
+# android-clean-boilerplate-demo
 
-This project is a proof of concept of clean architecture for Android.
+This project is a demo about applying Clean Architecture on Android.
 
-This project uses:
+## Technologies
 
-- AndroidX artifacts
 - Android Databinding
-- Fresco
 - Koin
 - Kotlin
 - Kotlin Coroutines
-- Retrofit
-- Room
+- Kotlin Serialization
+- Fuel
+- Room Persistence Library
 
 ## License
 
